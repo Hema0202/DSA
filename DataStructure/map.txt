@@ -1,0 +1,39 @@
+Map is type of Data structure
+
+in object we have key,value pairs. key is only string data type and value have any data type.
+
+obj --> key        -   value              
+        string         any data type  
+        . , []
+    
+in map also we have key, value pairs. but here slightly change in key. key is any datatype and value also any data type.
+
+Map --> key            -   value
+        any data type      any data type
+
+
+Map : set of key value pairs
+Create => new Map();
+
+
+Map methods:
+
+1.Set : Add key value pair in map
+  a.params-->key,value
+  b.return-->whole map
+
+2.Get : get value of any key 
+   a.params-->key
+   b.return-->value
+
+3.Has : has a particular key
+   a.params-->key
+   b.return-->True/false
+
+4.Delete : delete key value pair
+    a.params-->key
+    b.return-->whole key value pair except deleted
+
+
+Properties:
+1.Size : return size of map

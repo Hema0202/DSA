@@ -1,0 +1,24 @@
+Set is type of data structure.
+
+Set is like small brother of Map.
+
+Set : Stores unique keys or unique element
+Create=>new Set();
+
+Set Methods:
+
+1.Add : add element to set
+  a.params-->key/element
+  b.return-->the whole set
+
+2.Delete : delete an element
+   a.params-->key
+   b.return-->
+
+3.Has : key is available in set or not
+   a.params-->key
+   b.return-->true/false
+
+
+Properties:
+1.Size : return size of set
