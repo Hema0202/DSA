@@ -1,0 +1,29 @@
+Space Complexity:
+
+input = [1,2,4,6]
+let x = arr[1]
+      = O(1)
+
+input = [2,4,2,6,8]
+input = 5
+SC = 5
+
+input = 10
+SC = 10
+
+input = 1m
+sc = 1m
+
+input = n
+sc = n
+
+SpaceComplexity --> O(n)
+
+matrix
+
+[
+    [1,2,4,6],
+    [1,3,6,7],
+    [9,1,6,0] ]3*4 ,(m*n)
+
+SpaceComplexity -->O(m*n)
