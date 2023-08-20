@@ -16,7 +16,7 @@
 //     for(let i=0;i<e.length;i++){
 //         set.add(e[i]);
 //     }
-//     return e;
+//     return set;
 // }
 // console.log(count('abcdecdb'));
 
@@ -33,12 +33,12 @@
 
 
 //count the size of distinct number
-// function count(e){
-//       let set = new Set();
-//       for(let i=0;i<e.length;i++){
-//         set.add(e[i]);
-//       }
-//       let arr = Array.from(set);
-//       return arr.size;
-// }
-// console.log(count[1,2,5,3,2,3]);
+function count(e){
+      let set = new Set();
+      for(let i=0;i<e.length;i++){
+        set.add(e[i]);
+      }
+      let arr = Array.from(set);
+      return arr.length;
+}
+console.log(count([1,2,5,3,2,3]));
