@@ -26,7 +26,7 @@
 //     }
 // }
 // console.log(twoSum([1,2,3,4,5,6,7,8,9], 11));
-//timeCOmplexity:- O(n) spaceComplexity:-O(1)
+//timeCOmplexity:- O(n) spaceComplexity:-O(n)
 
 //method:-3
 // function twoSum(arr,x){
@@ -40,6 +40,6 @@
 //     return [-1,-1]
 // }
 // console.log(twoSum([1,2,3,4,5,6,7,8,9], 11));
-//timeCOmplexity:- O(1) spaceComplexity:-O(n)
-
+//This method works on sorted array,
+//timeCOmplexity:- O(n) spaceComplexity:-O(1)
 
