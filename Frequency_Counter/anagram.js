@@ -1,39 +1,39 @@
 //Method-1 : valid anagram
 
-function isAnagram(s,t){
-    if(s.length!= t.length)
-    return false;
+function isAnagram(s, t) {
+    if (s.length != t.length)
+        return false;
     let map1 = new Map();
     let map2 = new Map();
-    for(let key of s){
-        if(map1.has(key)){
+    for (let key of s) {
+        if (map1.has(key)) {
             let oldFrq = map1.get(key);
-            let newFrq = oldFrq+ 1 ;
+            let newFrq = oldFrq + 1;
             map1.set(key, newFrq);
         }
-        else{
-            map1.set(key,1);
+        else {
+            map1.set(key, 1);
         }
     }
-    for(let key of t){
-        if(map2.has(key)){
+    for (let key of t) {
+        if (map2.has(key)) {
             let oldFrq = map2.get(key);
             let newFrq = oldFrq + 1;
             map2.set(key, newFrq);
         }
-        else{
+        else {
             map2.set(key, 1);
         }
-       
+
     }
-    for(let [key1, value1] of map1){
+    for (let [key1, value1] of map1) {
         let value2 = map2.get(key1);
-        if(value1 != value2)
-        return false;
+        if (value1 != value2)
+            return false;
     }
     return true;
 }
-console.log(isAnagram("abcdbc","abbccd"));
+console.log(isAnagram("abcdbc", "abbccd"));
 
 
 //Method-2 : valid anagram
@@ -52,7 +52,7 @@ console.log(isAnagram("abcdbc","abbccd"));
 //     }
 //     for(let char of t){
 //         if(map.has(char)){
-//             let oldFrq = map.get(char);
+//             let oldFrq = map.get(char); 
 //             let newFrq = oldFrq - 1;
 //             map.set(char, newFrq);
 //         }
