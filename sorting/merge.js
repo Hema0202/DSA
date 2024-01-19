@@ -1,3 +1,6 @@
+//merge sort questions
+
+
 //merge two array in asc order
 
 
