@@ -41,6 +41,63 @@ class LinkedList{
         this.size--;
      }
 
+     addFirst(element){
+        let node = new Node(element);
+        node.next = this.head;
+        this.head = node;
+        this.size++;
+     }
+
+     removeFirst(){
+        if(this.head == null){
+            console.log("The linked list is already empty.");
+            return null;
+        }else{
+            this.head=this.head.next;
+            this.size--;
+        }
+     }
+
+
+     addAt(element,index){
+        if(index >= this.size) this.add(element);
+        else if(index==0) this.addFirst(element);
+        else{
+            let node = new Node(element);
+            let cur= this.head;
+            let loopCount = index-1;
+            while(loopCount>0){
+                cur = cur.next;
+                loopCount--;
+            }
+            let temp =cur.next;
+            cur.next = node;
+            node.next = temp;
+
+            this.size++;
+        }
+     }
+
+    
+    removeAt(index){
+        if(index<0 || index>=this.size){
+            console.log('Invalid index');
+            return;
+        }else if(index==0) this.removeFirst();
+        else{
+            let loopCount = index-1;
+            let cur =this.head;
+            while(loopCount>0){
+                cur = cur.next;
+                loopCount--;
+            }
+
+            cur.next = cur.next.next;
+            this.size--;
+        }
+    }
+
+
      print(){
         let cur = this.head;
         let s='';
@@ -59,5 +116,12 @@ ll.add(2);
 ll.add(3);
 // console.log(ll);
 ll.print();
-ll.remove();
+// ll.remove();
+// ll.print();
+
+ll.addFirst(2);
+ll.print();
+
+ll.removeFirst();
+ll.removeFirst();
 ll.print();
