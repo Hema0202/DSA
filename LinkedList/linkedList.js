@@ -97,6 +97,17 @@ class LinkedList{
         }
     }
 
+    reverse(){
+        let prev = null;
+        let cur = this.head;
+        while(cur != null){
+            let next = cur.next;
+            cur.next= prev;
+            prev = cur;
+            cur=next;
+        }
+        this.head = prev;
+    }
 
      print(){
         let cur = this.head;
@@ -119,9 +130,12 @@ ll.print();
 // ll.remove();
 // ll.print();
 
-ll.addFirst(2);
-ll.print();
+// ll.addFirst(2);
+// ll.print();
 
-ll.removeFirst();
-ll.removeFirst();
+// ll.removeFirst();
+// ll.removeFirst();
+// ll.print();
+
+ll.reverse();
 ll.print();
