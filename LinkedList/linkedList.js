@@ -126,7 +126,7 @@ ll.add(5);
 ll.add(2);
 ll.add(3);
 // console.log(ll);
-ll.print();
+// ll.print();
 // ll.remove();
 // ll.print();
 
@@ -137,5 +137,7 @@ ll.print();
 // ll.removeFirst();
 // ll.print();
 
-ll.reverse();
-ll.print();
+// ll.reverse();
+// ll.print();
+
+module.exports= LinkedList;
