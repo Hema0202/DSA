@@ -1,3 +1,5 @@
+// A queue is an important data structure in programming. A queue follows the FIFO (First In First Out) method and is open at both of its ends. Data insertion is done at one end, the rear end or the tail of the queue, while deletion is done at the other end, called the front end or the head of the queue
+
 // class Queue {
 //     #data
 //     constructor() {

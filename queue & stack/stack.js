@@ -1,3 +1,5 @@
+// A Stack is a linear data structure that holds a linear, ordered sequence of elements. It is an abstract data type. A Stack works on the LIFO process (Last In First Out), i.e., the element that was inserted last will be removed first.
+
 // class Stack{
 //     #data
 //     constructor(){

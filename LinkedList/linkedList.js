@@ -2,13 +2,13 @@
 //     constructor(val){
 //         this.val =val;
 //         this.next = null;
-//     }  
+//     }
 // }
 // class LinkedList{
 //      constructor(){
 //         this.head = null;
 //         this.size = 0;
-//      }   
+//      }
 
 //      add(element){
 //         let node = new Node(element);
@@ -58,7 +58,6 @@
 //         }
 //      }
 
-
 //      addAt(element,index){
 //         if(index >= this.size) this.add(element);
 //         else if(index==0) this.addFirst(element);
@@ -78,7 +77,6 @@
 //         }
 //      }
 
-    
 //     removeAt(index){
 //         if(index<0 || index>=this.size){
 //             console.log('Invalid index');
@@ -163,7 +161,7 @@
 //     add(e) {
 //         const node = new Node(e);
 //         if(this.head == null) {
-//             this.head = node ; 
+//             this.head = node ;
 //             this.tail = node;
 //         } else {
 //             this.tail.next = node;
@@ -283,180 +281,175 @@
 
 // module.exports= LinkedList;
 
-
 //***************************Doubly LinkedList **********/
- 
+
 class DoublyListNode {
-    constructor(val) {
-        this.val = val;
-        this.prev = null;
-        this.next = null;
-    }
+  constructor(val) {
+    this.val = val;
+    this.prev = null;
+    this.next = null;
+  }
 }
 
 class DoublyLinkedList {
-    constructor() {
+  constructor() {
+    this.head = null;
+    this.size = 0;
+  }
+
+  isEmpty() {
+    return this.size === 0;
+  }
+
+  add(val) {
+    const node = new DoublyListNode(val);
+    if (this.isEmpty()) {
+      this.head = node;
+    } else {
+      let cur = this.head;
+      while (cur.next != null) {
+        cur = cur.next;
+      }
+      cur.next = node;
+      node.prev = cur;
+    }
+    this.size++;
+    return this.size;
+  }
+
+  remove() {
+    if (this.isEmpty()) {
+      console.log("LinkedList is already empty!");
+      return null;
+    } else {
+      let removedElement;
+      if (this.size == 1) {
+        removedElement = this.head.val;
         this.head = null;
-        this.size = 0;
-    }
-
-    isEmpty() {
-        return this.size === 0;
-    }
-
-    add(val) {
-        const node = new DoublyListNode(val);
-        if(this.isEmpty()) {
-            this.head = node;
-        } else {
-            let cur = this.head;
-            while(cur.next != null) {
-                cur = cur.next;
-            }
-            cur.next = node;
-            node.prev = cur;
+      } else {
+        let cur = this.head;
+        while (cur.next.next != null) {
+          cur = cur.next;
         }
-        this.size++;
-        return this.size;
+        removedElement = cur.next.val;
+        cur.next.prev = null;
+        cur.next = null;
+      }
+
+      this.size--;
+      return removedElement;
+    }
+  }
+
+  addFirst(e) {
+    const node = new DoublyListNode(e);
+    if (this.isEmpty()) {
+      this.head = node;
+    } else {
+      node.next = this.head;
+      this.head.prev = node;
+      this.head = node;
     }
 
-    remove() {
-        if(this.isEmpty()) {
-            console.log('LinkedList is already empty!');
-            return null;
-        } else {
-            let removedElement;
-            if(this.size == 1) {
-                removedElement = this.head.val;
-                this.head = null;
-            }else {
-                let cur = this.head;
-                while(cur.next.next != null) {
-                    cur = cur.next;
-                }
-                removedElement = cur.next.val;
-                cur.next.prev = null;
-                cur.next = null;
-            }
+    this.size++;
+    return this.size;
+  }
 
-            this.size--;
-            return removedElement;
-        }
+  removeFirst() {
+    if (this.isEmpty()) {
+      console.log("LinkedList is already empty");
+      return null;
+    } else {
+      let removedElement = this.head.val;
+      if (this.head.next) {
+        this.head.next.prev = null;
+        this.head = this.head.next;
+      } else {
+        this.head = null;
+        this.tail = null;
+      }
+
+      this.size--;
+      return removedElement;
     }
+  }
 
-    addFirst(e) {
-        const node = new DoublyListNode(e);
-        if(this.isEmpty()) {
-            this.head = node;
-        } else {
-            node.next = this.head;
-            this.head.prev = node;
-            this.head = node;
-        }
+  addAt(e, i) {
+    if (i >= this.size) {
+      let node = new Node(e);
 
-        this.size++;
-        return this.size;
+      if (this.isEmpty()) {
+        this.head = node;
+        this.tail = node;
+      } else {
+        node.prev = this.tail;
+        this.tail.next = node;
+        this.tail = node;
+      }
+
+      this.size++;
+    } else if (i == 0) this.addFirst(e);
+    else {
+      let node = new DoublyListNode(e);
+      let cur = this.head;
+      let loopCount = i - 1;
+      while (loopCount > 0) {
+        cur = cur.next;
+        loopCount--;
+      }
+
+      let temp = cur.next;
+      cur.next = node;
+
+      temp.prev = node;
+      node.next = temp;
+
+      node.prev = cur;
+
+      this.size++;
     }
+    return this.size;
+  }
 
-    removeFirst() {
-        if(this.isEmpty()) {
-            console.log('LinkedList is already empty');
-            return null;
-        } else {
-            let removedElement = this.head.val;
-            if(this.head.next) {
-                this.head.next.prev = null;
-                this.head = this.head.next;
-            } else {
-                this.head = null;
-                this.tail = null;
-            }
-
-            this.size--;
-            return removedElement;
-        }
+  removeAt(i) {
+    if (i < 0 || i >= this.size) {
+      console.log("Invalid index");
+      return null;
+    } else if (i == 0) return this.removeFirst();
+    else {
+      let loopCount = i - 1;
+      let cur = this.head;
+      while (loopCount > 0) {
+        cur = cur.next;
+        loopCount--;
+      }
+      let removedNode = cur.next;
+      cur.next = removedNode.next;
+      if (removedNode.next) {
+        removedNode.next.prev = cur;
+      } else {
+        this.tail = cur;
+      }
+      this.size--;
+      return removedNode.val;
     }
+  }
 
-    addAt(e, i) {
-        if(i > this.size) {
-           let node = new Node(e);
-
-           if(this.isEmpty()){
-            this.head = node;
-            this.tail = node;
-           } else {
-            node.prev = this.tail;
-            this.tail.next = node;
-            this.tail = node;
-           }
-
-           this.size++;
-        }
-        else if(i==0) this.addFirst(e);
-        else {
-            let node = new DoublyListNode(e);
-            let cur = this.head;
-            let loopCount = i-1;
-            while(loopCount > 0){
-                cur = cur.next;
-                loopCount--;
-            }
-
-            let temp = cur.next;
-            cur.next = node;
-             
-            if(temp) {
-                temp.prev = node;
-                node.next = temp;
-            } else {
-                this.tail = node;
-            }
-
-            node.prev = cur;
-
-            this.size++;
-        }
+  print() {
+    if (this.isEmpty()) {
+      console.log(null);
+    } else {
+      let s = "null <- ";
+      let cur = this.head;
+      while (cur.next != null) {
+        s += cur.val + " <=> ";
+        cur = cur.next;
+      }
+      s += cur.val + " -> null";
+      console.log(s);
     }
-
-    removeAt(i) {
-        if(i<0 || i>=this.size) {
-            console.log('Invalid index');
-            return;
-        } else if(i==0) this.removeFirst();
-        else {
-            let loopCount = i-1;
-            let cur = this.head;
-            while(loopCount>0) {
-                cur = cur.next;
-                loopCount--;
-            }
-            let removedNode = cur.next;
-            cur.next = removedNode.next;
-            if(removedNode.next){
-                removedNode.next.prev = cur;
-            } else {
-                this.tail = cur;
-            }
-            this.size--;
-        }
-    }
-
-    print() {
-        if(this.isEmpty()) {
-            console.log(null);
-        } else {
-            let s ='null <-';
-            let cur = this.head;
-            while(cur.next != null) {
-                s+=(cur.val + "<=>");
-                cur=cur.next;
-            }
-            s+=(cur.val + '-> null');
-            console.log(s);
-        }
-    }
+  }
 }
-
 
 let dll = new DoublyLinkedList();
 
@@ -471,5 +464,6 @@ dll.print();
 // dll.addFirst(3);
 // dll.removeFirst();
 // dll.addAt(3,2);
-dll.removeAt(2);
+dll.removeAt(3);
+dll.add(5);
 dll.print();
