@@ -121,3 +121,27 @@ function sumOfTree(root){
     let r=sumOfTree(root.right);
     return l+r+root.val;
 }
+
+
+
+//////////////////////////DFS/////////////
+// 102. Binary Tree Level Order Traversal
+
+var levelOrder = function(root) {
+    if(!root) return [];
+    let arr = [];
+    let q = [root];
+    while(q.length>0){
+        let temp = [];
+       let loopCount = q.length;
+       while(loopCount>0){
+          let node = q.shift();
+          temp.push(node.val);
+          if(node.left) q.push(node.left);
+          if(node.right) q.push(node.right);
+          loopCount--;
+       }
+       arr.push(temp);
+    }
+    return arr;
+};
