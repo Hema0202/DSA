@@ -93,3 +93,28 @@ function negInSubarray(n, arr, k){
 }
 arr = [3, 5, -1, 3, -1, 4, 5, 6], n= 8, k = 3;
 negInSubarray(n, arr, k);
+
+function negInSubarray(n, arr, k) {
+    let res = [];
+    let last = -1;
+    for(let i=0;i<n-k;i++) {
+        if(last >= i) res.push(last);
+        else {
+            let isFound = false;
+            for(let j=i;j<i+k;j++) {
+                if(arr[j] < 0) {
+                    res.push(j);
+                    last = j;
+                    isFound = true;
+                    break;
+                }
+            }
+
+            if(!isFound) {
+                res.push(-1);
+            }
+        }
+    }
+
+    console.log(res);
+}
