@@ -110,7 +110,8 @@ function negInSubarray(n, arr, k) {
                 }
             }
 
-        
+            if(!isFound) {
+                res.push(-1);
             }
         }
     }
