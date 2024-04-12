@@ -1,5 +1,7 @@
 //Method-1 : valid anagram
 
+map.set(e, (map.get(e) || 0) + 1);
+
 function isAnagram(s, t) {
     if (s.length != t.length)
         return false;
